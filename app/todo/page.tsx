@@ -1,3 +1,5 @@
+"use client";
+
 import { JitsuProvider } from "@jitsu/jitsu-react";
 import { jitsuHost, jitsuWriteKey } from "@/env";
 import ToDo from "@/components/ToDo";
