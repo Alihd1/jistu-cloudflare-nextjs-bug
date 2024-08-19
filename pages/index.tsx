@@ -1,7 +1,8 @@
 import { GetServerSideProps } from "next";
 
-// import { JitsuProvider } from "@jitsu/jitsu-react";
-// import { jitsuHost, jitsuWriteKey } from "@/env";
+import { JitsuProvider } from "@jitsu/jitsu-react";
+import { jitsuHost, jitsuWriteKey } from "@/env";
+import ToDo from "@/components/ToDo";
 
 export const runtime = "experimental-edge";
 
@@ -19,5 +20,9 @@ export const getServerSideProps: GetServerSideProps<{
 };
 
 export default function TodoPage(data: any) {
-  return <>{JSON.stringify(data)}</>;
+  return (
+    <JitsuProvider options={{ host: jitsuHost, writeKey: jitsuWriteKey }}>
+      <ToDo data={data} />
+    </JitsuProvider>
+  );
 }
